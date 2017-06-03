@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Live Live Image to ASCII Converter Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Live Live Image to ASCII Converter&rdquo; Documentation by &ldquo;Kennedy Rose&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Live Image to ASCII Converter&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 4/22/2012<br>
+					By: Kennedy Rose<br>
+					Email: <a href="mailto:kennedy@kennedyrose.com">kennedy@kennedyrose.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0"><b>Requirements:</b> A web server with at least 440kb of space, PHP 5 or higher.<br /><b>Note:</b> Thank you for purchasing my script. If you have any questions that are not answered with this help file, please feel free to email me at <a href="mailto:kennedy@kennedyrose.com">kennedy@kennedyrose.com</a>.</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#quickstart">Quick Start Guide</a></li>
+			<li><a href="#uploading">Uploading Images</a></li>
+			<li><a href="#deleting">Deleting Images</a></li>
+			<li><a href="#converting">Manually Converting Images</a></li>
+			<li><a href="#trouble">Known Issues</a></li>
+			<li><a href="#sources">Sources</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="quickstart"><strong>A) Quick Start Guide</strong> - <a href="#toc">top</a></h3>
+		<p>To install the complete script including the image uploader (as seen in the <a href="http://www.imagetoascii.com/">demo</a>), all you have to do is upload all the files that came with this package to your webserver. Once you have done this, the image uploader page will appear on the index.php file. Example: http://www.yoursite.com/index.php</p>
+<p>That's it! There's no reason to read any further unless you want to use the more advanced applications of this script. Everything after this will require some basic knowledge of HTML tags.</p>
+		
+		<hr>
+		
+		<h3 id="uploading"><strong>B) Uploading Images</strong> - <a href="#toc">top</a></h3>
+		<p>To use the image uploader located in "index.php", first boot up the page (like in the <a href="#quickstart">example</a> above), click on the "Browse" button to browse your computer for an image to be converted to ASCII characters.</p>
+<p>All uploaded images will be automatically stored in the /uploads/ directory on your web server. To delete all of these images automatically, see <a href="#deleting">Deleting Images</a>.</p>
+		
+		<hr>
+
+		<h3 id="deleting"><strong>C) Deleting Images</strong> - <a href="#toc">top</a></h3>
+		<p>To automatically erase all images located in the /uploads/ directory, just run "cleanup.php" from wherever you uploaded the files to. <b>Example:</b> Type "http://www.yoursite.com/cleanup.php" into your browser. If the file has ran successfully, a message saying "All images deleted!" should show up.</p>
+
+		<hr>
+		
+		<h3 id="converting"><strong>D) Manually Converting Images</strong> - <a href="#toc">top</a></h3>
+		<p>If you would like to convert images for yourself on your web pages without the uploader, this will require some <a href="http://www.w3schools.com/tags/tag_img.asp" target="_blank">minor knowledge of HTML</a>. First, we need is to call on the "imgtoascii.min.js" file located in the /lib/ folder. To do this, copy and paste this code between your &#60;head&#62; tags:</p>
+		<p><pre>&#60;script type="text/javascript" src="lib/imgtoascii.min.js"&#62;&#60;/script&#62;</pre></p>
+		<p>Now we need to call on the script in our &#60;img&#62; tags by adding the attribute asciify="true" inside the tag, like so:</p>
+		<p><pre>&#60;img src="img/yourimage.jpg" asciify="true" /&#62;</pre></p>
+		<p>You can control the resolution with the attribute asciiresolution=(low/medium/high) and the color with the attribute asciicolor=(true/false). So if we wanted a high resolution image with color, the code would be:</p>
+		<p><pre>&#60;img src="img/yourimage.jpg" asciify="true" asciiresolution="high" asciicolor="true" /&#62;</pre></p>
+
+		<hr>
+		
+		<h3 id="trouble"><strong>E) Known Issues</strong> - <a href="#toc">top</a></h3>
+		<ul>
+		<li>The only major known issue is with Internet Explorer. At the moment, the script does not work with IE and there is no way to fix that due to the lack of support for the getImageData function. I have included a simple PHP script in "index.php" that will detect if the browser is IE and ask them to switch to another browser. If compatibility with IE ever improves I will update the script to support IE.</li>
+		<li>There is a minor issue dealing with poorly compressed PNG files. The image will still be displayed but with the top few characters saying "undefined". I haven't found a workaround for this yet, but most properly formed PNG files will work just fine. The ones that don't will still be displayed minus a few pixels.</li>
+		</ul>
+		<p>If you catch any errors, email me at <a href="mailto:kennedy@kennedyrose.com">kennedy@kennedyrose.com</a></p>
+		
+		<hr>
+		
+		<h3 id="sources"><strong>F) Sources</strong> - <a href="#toc">top</a></h3>
+		<p>Any code that is not mine has been used with permission under an <a href="http://www.opensource.org/licenses/MIT" target="_blank">MIT license</a>. Some code has been slightly modified for the purposes of implimentation and speed. See their respective websites for the original code.</p>
+		<ul>
+		<li>A section from <a href="http://blog.nihilogic.dk/" target="_blank">Jacob Seidelin</a>'s <a href="http://www.nihilogic.dk/labs/jsascii/" target="_blank">Javascript image ASCIIfier</a> has been used to quickly render uploaded images as ASCII characters.</li>
+		<li>A section from <a href="http://scottjehl.com/" target="_blank">Scott Jehl</a>'s <a href="https://github.com/scottjehl/jQuery-Custom-File-Input" target="_blank">customfileinput plugin</a> has been used for uploading images without redirecting to a new page.</li>
+		</ul>
+		
+		
+		<hr>
+		
+		<p>Thank you for purchasing this script! If you have questions, feel free to email me at <a href="mailto:kennedy@kennedyrose.com">kennedy@kennedyrose.com</a>. Thanks again!</p> 
+		
+		<p class="append-bottom alt large"><strong>Kennedy Rose</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
